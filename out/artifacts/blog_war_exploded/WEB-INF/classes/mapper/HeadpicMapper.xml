@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这里写类名-->
+<mapper namespace="com.mapper.HeadpicMapper">
+    <select id="queryById" resultType="com.pojo.Headpic">
+        SELECT * from Headpic WHERE id = #{id};
+    </select>
+    <insert id="insert">
+        insert into Headpic(id,picture) values (#{id},#{picture});
+    </insert>
+</mapper>

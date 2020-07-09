@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这里写类名-->
+<mapper namespace="com.mapper.CategoryMapper">
+    <select id="queryAll" resultType="com.pojo.Category">
+        SELECT * from Category;
+    </select>
+    <select id="queryById" resultType="com.pojo.Category">
+        SELECT * from Category WHERE id = #{id};
+    </select>
+    <select id="queryExist" resultType="com.pojo.Category">
+        SELECT id,name from Category
+        where isdel=false;
+    </select>
+    <select id="queryDel" resultType="com.pojo.Category">
+        SELECT id,name from Category
+        where isdel=true;
+    </select>
+    <select id="queryByName" resultType="com.pojo.Category">
+        SELECT id,name from Category
+        where name=#{name} and isdel=false;
+    </select>
+    <update id="setIsdel" parameterType="String">
+        update Category set isdel=true where id = #{id};
+    </update>
+    <update id="setNotdel" parameterType="String">
+        update Category set isdel=true where id = #{id};
+    </update>
+    <update id="updateById" parameterType="com.pojo.Category">
+        update Category set name=#{name},isdel=#{isdel} where id = #{id};
+    </update>
+
+    <!--    <update id="updateUser" parameterType="com.pojo.Article">-->
+    <!--        update user set username=#{userName},password=#{password}-->
+    <!--        ,email=#{email},headpic=#{headpic}-->
+    <!--        ,logintimes=#{logintimes},permission=#{permission}-->
+    <!--        where userId=#{userId}-->
+    <!--    </update>-->
+    <delete id="deleteCategory" parameterType="String">
+        delete from Category where id=#{id};
+    </delete>
+    <insert id="insertCategory" parameterType="com.pojo.Category">
+        insert into Category(id,name,isdel)
+        values(#{id},#{name},#{isdel});
+    </insert>
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这里写类名-->
+<mapper namespace="com.mapper.ArticleMapper">
+    <select id="queryById" resultType="com.pojo.Article">
+        SELECT * from Article WHERE id = #{id};
+    </select>
+    <select id="queryExist" resultType="com.pojo.Article">
+        SELECT id,title,detail,creattime,looktimes,adminid,categoryId,ispublic from Article
+        where isdel=false;
+    </select>
+    <select id="queryDel" resultType="com.pojo.Article">
+        SELECT id,title,detail,creattime,looktimes,adminid,categoryId,ispublic from Article
+        where isdel=true;
+    </select>
+    <select id="queryLike" resultType="com.pojo.Article">
+        SELECT id,title,creattime,looktimes,adminid,categoryId,ispublic from Article
+        where id like #{search} or title like #{search} or detail like #{search}
+        and isdel=false;
+    </select>
+    <select id="queryByCategory" resultType="com.pojo.Article">
+        SELECT id,title,creattime,looktimes,adminid,categoryId,ispublic from Article
+        where categoryId=#{categoryId} and isdel=false;
+    </select>
+<!--    <update id="updateUser" parameterType="com.pojo.Article">-->
+<!--        update user set username=#{userName},password=#{password}-->
+<!--        ,email=#{email},headpic=#{headpic}-->
+<!--        ,logintimes=#{logintimes},permission=#{permission}-->
+<!--        where userId=#{userId}-->
+<!--    </update>-->
+<!--    <delete id="deleteArticle" parameterType="String">-->
+<!--        delete from user where userId=#{userid};-->
+<!--    </delete>-->
+    <insert id="insertArticle" parameterType="com.pojo.Article">
+        insert into Article(id,title,detail,creattime,adminid,categoryid,ispublic)
+        values(#{id},#{title},#{detail},#{creattime},#{adminid},#{categoryid},#{ispublic});
+    </insert>
+    <update id="updateArticle" parameterType="com.pojo.Article">
+        update Article set title=#{title},detail=#{detail},adminid=#{adminid},categoryid=#{categoryid},ispublic=#{ispublic}
+        where id=#{id};
+    </update>
+    <update id="setIsDelArticle" parameterType="String">
+        update Article set isdel=true where  id=#{id};
+    </update>
+    <update id="setNotDelArticle" parameterType="String">
+        update Article set isdel=false where id=#{id};
+    </update>
+    <delete id="deleteArticleById" parameterType="String">
+        delete from Article where id=#{id};
+    </delete>
+</mapper>

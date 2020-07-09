@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这里写类名-->
+<mapper namespace="com.mapper.AdminMapper">
+    <select id="queryById" resultType="com.pojo.Admin">
+        SELECT * from admin WHERE id = #{id};
+    </select>
+    <select id="queryAllNotSuper" resultType="com.pojo.Admin">
+        SELECT * from admin WHERE isSuper=false;
+    </select>
+    <select id="queryAll" resultType="com.pojo.Admin">
+        SELECT * from admin;
+    </select>
+    <select id="queryByLoginidOrEmail" resultType="com.pojo.Admin">
+        SELECT * from admin WHERE loginid = #{loginid} or email = #{email};
+    </select>
+
+    <insert id="insertAdmin" parameterType="com.pojo.Admin">
+        insert into admin(id,loginid,name,password,descn,email,headpic)
+        values(#{id},#{loginid},#{name},#{password},#{descn},#{email},#{headpic});
+    </insert>
+    <update id="updateAdminBySuper" parameterType="com.pojo.Admin">
+        update admin set loginid=#{loginid},name=#{name},password = #{password},
+        descn = #{descn},email=#{email},headpic=#{headpic},permission=#{permission},showing=#{showing}
+        where id=#{id}
+    </update>
+    <delete id="deleteAdmin" parameterType="String">
+        delete from admin where id=#{id};
+    </delete>
+    <delete id="deleteAdmins" parameterType="String">
+        delete from admin where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+        ;
+    </delete>
+</mapper>
