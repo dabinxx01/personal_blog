@@ -12,15 +12,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@RequestMapping("/category")
 @Controller
 public class CategoryController {
 
-    @Qualifier("categoryServiceImpl")
     @Autowired
-    private CategoryService cgs;
+    private CategoryService categoryService;
 
-    @RequestMapping("/categorymanage")
+    @RequestMapping("/manage")
     public String getUsermanage(Model model) throws Exception{
         return "admin/categorymanage";
     }
@@ -31,9 +30,9 @@ public class CategoryController {
         String search=null;
         List<Category> categories = new ArrayList<Category>();
         if(search==null)
-            categories = cgs.getAllCategory();
+            categories = categoryService.getAllCategory();
         else
-            categories = cgs.getAllCategory();
+            categories = categoryService.getAllCategory();
         int size=categories.size();
         int pages=categories.size()/nums+1;
 
@@ -52,7 +51,7 @@ public class CategoryController {
     @RequestMapping(value = "/addcategory", method = RequestMethod.POST)
     @ResponseBody
     private Map<String, Object> add(@RequestBody Category category) throws  Exception{
-        int result = cgs.addCategory(category);
+        int result = categoryService.addCategory(category);
         Map<String, Object> map = new HashMap<String, Object>();
         if (result > 0) {
             map.put("status", 1);
@@ -65,7 +64,7 @@ public class CategoryController {
     @RequestMapping(value = "/delcategory/{userId}", method = RequestMethod.DELETE)
     @ResponseBody
     private Map<String, Object> deleteById(@PathVariable("id") String id) throws  Exception{
-        int result = cgs.deleteOneCategory(id);
+        int result = categoryService.deleteOneCategory(id);
         Map<String, Object> map = new HashMap<String, Object>();
         if (result > 0) {
             map.put("status", 1);
@@ -78,7 +77,7 @@ public class CategoryController {
     @ResponseBody
     private Map<String, Object> update(@RequestBody Category category) throws Exception {
         //int result = us.update(user);
-        int result = cgs.updateCategory(category);
+        int result = categoryService.updateCategory(category);
         Map<String, Object> map = new HashMap<String, Object>();
         if (result > 0) {
             map.put("status", 1);
@@ -88,9 +87,9 @@ public class CategoryController {
         return map;
     }
 
-    @RequestMapping("/categorylist")
+    @RequestMapping("/list")
     public String getCategoryList(Model model) throws Exception{
-        model.addAttribute("caregoryList",cgs.getExistCategory());
+        model.addAttribute("caregoryList",categoryService.getExistCategory());
         return "index";
     }
 }

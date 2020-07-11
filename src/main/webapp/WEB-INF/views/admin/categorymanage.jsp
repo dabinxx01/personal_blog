@@ -151,7 +151,7 @@
         }
         table.render({
             elem: '#categorytable'
-            ,url:'allcategory'
+            ,url:'/category/allcategory'
             ,method: 'get'
             ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
             ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
@@ -198,7 +198,7 @@
         form.on('submit(add-category-form-submit)', function(data) {
             // ajax方式添加用户
             $.ajax({
-                url: "addcategory",
+                url: "/category/addcategory",
                 type: "POST",
                 data: JSON.stringify(data.field),
                 contentType: 'application/json',
@@ -254,7 +254,7 @@
                     }
                     // ajax方式更新用户
                     $.ajax({
-                        url: "delCheckCategory",
+                        url: "/category/delCheckCategory",
                         type: "PUT",
                         data: JSON.stringify(data.field),
                         contentType: 'application/json',
@@ -337,7 +337,7 @@
                 form.on('submit(update-category-form-submit)', function(data) {
                     // ajax方式更新用户
                     $.ajax({
-                        url: "updcategory",
+                        url: "/category/updcategory",
                         type: "PUT",
                         data: JSON.stringify(data.field),
                         contentType: 'application/json',

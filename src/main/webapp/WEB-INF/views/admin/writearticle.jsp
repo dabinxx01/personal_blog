@@ -16,10 +16,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css">
     <script src="https://www.layuicdn.com/layui-v2.5.6/layui.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="editor.md-master/css/editormd.css" />
+    <link rel="stylesheet" href="/static/editor.md/css/editormd.css" />
     <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="editor.md-master/editormd.js"></script>
-    <script src="static/js/paste-upload-img.js" type="text/javascript"></script>
+    <script src="/static/editor.md/editormd.js"></script>
+    <script src="/static/js/paste-upload-img.js" type="text/javascript"></script>
     <style type="text/css">
         *{
             margin: 0;
@@ -166,7 +166,7 @@
             // width  : "100%",
             // height : "100%",
             emoji: true,
-            path   : "editor.md-master/lib/",
+            path   : "/static/editor.md/lib/",
             theme : "dark",
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],

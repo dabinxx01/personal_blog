@@ -241,7 +241,7 @@
         }
         table.render({
             elem: '#admintable',
-            url: 'alladmin',
+            url: '/back/alladmin',
             method: 'get',
             toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
             ,
@@ -340,7 +340,7 @@
         form.on('submit(add-admin-form-submit)', function(data) {
             // ajax方式添加用户
             $.ajax({
-                url: "addadmin",
+                url: "/back/addadmin",
                 type: "POST",
                 data: JSON.stringify(data.field),
                 contentType: 'application/json',
@@ -428,7 +428,7 @@
                 layer.confirm('确定删除用户' + data.userName + '吗？', function(index) {
                     obj.del();
                     $.ajax({
-                        url: 'deladmin/' + data.id,
+                        url: '/back/deladmin/' + data.id,
                         type: "DELETE",
                         dataType: 'json',
                         success: function(data) {
@@ -502,7 +502,7 @@
                 form.on('submit(update-admin-form-submit)', function(data) {
                     // ajax方式更新用户
                     $.ajax({
-                        url: "updadmin",
+                        url: "/back/updadmin",
                         type: "PUT",
                         data: JSON.stringify(data.field),
                         contentType: 'application/json',

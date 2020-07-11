@@ -10,18 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserPageController {
-    @Qualifier("categoryServiceImpl")
+
     @Autowired
-    private CategoryService cgs;
-    @Qualifier("articleServiceImpl")
+    private CategoryService categoryService;
     @Autowired
-    private ArticleService ars;
+    private ArticleService articleService;
 
     @RequestMapping("/userindex")
     public String getCategoryList(Model model) throws Exception{
-        model.addAttribute("categoryList",cgs.getExistCategory());
+        model.addAttribute("categoryList",categoryService.getExistCategory());
 
-        model.addAttribute("articleList",ars.getExistArticle());
+        model.addAttribute("articleList",articleService.getExistArticle());
         return "index";
     }
 }

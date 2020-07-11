@@ -42,7 +42,7 @@
 <div class="bg">
     <div class="login-panel layui-form" >
         <div style="text-align: center;margin:0px auto 20px;"><h2>个人博客后台系统</h2></div>
-        <form class="layui-form layui-form-pane" action="adminindex" method="post">
+        <form class="layui-form layui-form-pane" action="/back/login" method="post">
             <div class="layui-form-item">
                 <label class="layui-form-label">用户</label>
                 <div class="layui-input-block">

@@ -20,7 +20,7 @@ public class AdminInterceptor implements HandlerInterceptor {
         HttpSession session = httpServletRequest.getSession();
         if (session.getAttribute("adminid")==null) {
             System.out.println("未登录，拦截中");
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin_login.jsp");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/back/login.html");
             return false;
         }
         return true;

@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@RequestMapping("/back")
 @Controller
 public class AdminController {
     @Qualifier("adminServiceImpl")
     @Autowired
     private AdminService as;
 
-    @RequestMapping(value="/adminindex")
+    @RequestMapping(value="/login")
     public String queryUser(HttpServletRequest request) throws Exception{
         String username=(String)request.getParameter("loginusername");
         String password=(String)request.getParameter("loginpassword");
@@ -36,8 +36,13 @@ public class AdminController {
         else {
             request.setAttribute("username", username);
             request.setAttribute("loginmsg", "登录账号不存在或密码错误");
-            return "admin/login";
+            return "redirect:login.html";
         }
+    }
+    @RequestMapping(value="/loginout")
+    public String loginOut(HttpServletRequest request) throws Exception {
+        request.getSession().removeAttribute("adminid");
+        return "redirect:login.html";
     }
     @RequestMapping(value = "/alladmin", method = RequestMethod.GET)
     @ResponseBody
@@ -104,13 +109,15 @@ public class AdminController {
         }
         return map;
     }
-    @RequestMapping("/adminmanage")
+    @RequestMapping("/manage")
     public String adminManage(Model model){
         return "admin/adminmanage";
     }
 
-    @RequestMapping("/adminlogin")
-    public String login(Model model){
+    @RequestMapping("/login.html")
+    public String login(HttpServletRequest request){
+        if(request.getAttribute("username")!=null)
+            request.setAttribute("username",request.getAttribute("username"));
         return "admin/login";
     }
 

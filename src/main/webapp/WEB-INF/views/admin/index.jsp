@@ -52,7 +52,7 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="adminlogin">退出系统</a></li>
+            <li class="layui-nav-item"><a href="loginout">退出系统</a></li>
         </ul>
     </div>
 
@@ -64,11 +64,11 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;"><i class="layui-icon layui-icon-file-b"></i>&nbsp;&nbsp;我的博客</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="editArticle" target="body-iframe"><i class="layui-icon layui-icon-edit"></i>&nbsp;&nbsp;发布文章</a></dd>
-                        <dd><a href="articlemanage" target="body-iframe"><i class="layui-icon layui-icon-table"></i>&nbsp;&nbsp;文章管理</a></dd>
+                        <dd><a href="/editArticle" target="body-iframe"><i class="layui-icon layui-icon-edit"></i>&nbsp;&nbsp;发布文章</a></dd>
+                        <dd><a href="/articlemanage" target="body-iframe"><i class="layui-icon layui-icon-table"></i>&nbsp;&nbsp;文章管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="categorymanage" target="body-iframe"><i class="layui-icon layui-icon-templeate-1"></i>&nbsp;&nbsp;类别管理</a></li>
+                <li class="layui-nav-item"><a href="/category/manage" target="body-iframe"><i class="layui-icon layui-icon-templeate-1"></i>&nbsp;&nbsp;类别管理</a></li>
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="layui-icon layui-icon-reply-fill"></i>&nbsp;&nbsp;用户评论</a>
                     <dl class="layui-nav-child">
@@ -80,7 +80,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="layui-icon layui-icon-user"></i>&nbsp;&nbsp;用户管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="usermanage" target="body-iframe"><i class="layui-icon layui-icon-table"></i>&nbsp;&nbsp;我的用户</a></dd>
+                        <dd><a href="/usermanage" target="body-iframe"><i class="layui-icon layui-icon-table"></i>&nbsp;&nbsp;我的用户</a></dd>
 <%--                        <dd><a href="javascript:;" target="body-iframe">在线用户</a></dd>--%>
 <%--                        <dd><a href="javascript:;" target="body-iframe">用户操作记录</a></dd>--%>
                     </dl>
@@ -88,13 +88,13 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="layui-icon layui-icon-set"></i>&nbsp;&nbsp;系统管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="adminmanage" target="body-iframe"><i class="layui-icon layui-icon-user"></i>&nbsp;&nbsp;管理员管理</a></dd>
+                        <dd><a href="/back/manage" target="body-iframe"><i class="layui-icon layui-icon-user"></i>&nbsp;&nbsp;管理员管理</a></dd>
 <%--                        <dd><a href="javascript:;" target="body-iframe">网站维护</a></dd>--%>
 <%--                        <dd><a href="javascript:;" target="body-iframe">网站访问量报表</a></dd>--%>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="javascript:;" target="body-iframe"><i class="layui-icon layui-icon-picture"></i>&nbsp;&nbsp;头像管理</a></li>
-                <li class="layui-nav-item"><a href="userindex"><i class="layui-icon layui-icon-layouts"></i>&nbsp;&nbsp;前台测试</a></li>
+                <li class="layui-nav-item"><a href="/userindex"><i class="layui-icon layui-icon-layouts"></i>&nbsp;&nbsp;前台测试</a></li>
             </ul>
         </div>
     </div>
